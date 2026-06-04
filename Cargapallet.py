@@ -6,7 +6,7 @@ from io import BytesIO
 import math
 
 # Configuración de la App
-st.set_page_config(page_title="Control de Pedidos Madera", layout="wide")
+st.set_page_config(page_title="Control de Pedidos Mhttps://github.com/cpmiguelandrada-collab/MaxPallet/edit/main/Cargapallet.pyadera", layout="wide")
 
 # Estética: Verde Pallet y Marrón Madera
 st.markdown("""
@@ -67,7 +67,7 @@ def generar_pdf_pro(df_t, df_l, pies_totales):
         pdf.cell(50, 8, str(r['Metros Totales']), 1)
         pdf.cell(50, 8, str(r['Tiras de 3m']), 1, 1)
         pdf_bytes = bytes(pdf.output(dest='S'))
-return pdf_bytes
+    return pdf_bytes
 
 st.title("🪵 Optimizador de Producción Pallets")
 
