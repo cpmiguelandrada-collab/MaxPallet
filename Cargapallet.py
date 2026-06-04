@@ -8,8 +8,6 @@ import math
 # Configuración de la App
 st.set_page_config(page_title="Control de Pedidos Mhttps://github.com/cpmiguelandrada-collab/MaxPallet/edit/main/Cargapallet.pyadera", layout="wide")
 
-st.image("MaxPallet.png", width=350)
-
 # Estética: Verde Pallet y Marrón Madera
 st.markdown("""
     <style>
