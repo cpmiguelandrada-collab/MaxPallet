@@ -67,7 +67,8 @@ def generar_pdf_pro(df_t, df_l, pies_totales):
         pdf.cell(50, 8, str(r['Metros Totales']), 1)
         pdf.cell(50, 8, str(r['Tiras de 3m']), 1, 1)
 
-    return pdf.output(dest='S').encode('latin-1')
+    pdf_bytes = bytes(pdf.output(dest='S'))
+return pdf_bytes
 
 st.title("🪵 Optimizador de Producción Pallets")
 
