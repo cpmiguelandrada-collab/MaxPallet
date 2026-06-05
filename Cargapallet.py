@@ -80,10 +80,10 @@ tab1, tab2 = st.tabs([
 ])
 
 with tab1:
-    # TODO tu código actual de producción
+    st.write("Producción")
 
 with tab2:
-    st.header("Gestión de Modelos")
+    st.write("Gestión")
 
 col_izq, col_der = st.columns([1, 2])
 pedido = {}
