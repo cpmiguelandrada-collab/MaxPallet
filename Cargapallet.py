@@ -80,19 +80,8 @@ tab1, tab2 = st.tabs([
 ])
 
 with tab1:
-
     col_izq, col_der = st.columns([1, 2])
-
     pedido = {}
-
-    # TODO: aquí va todo tu código actual de producción
-
-with tab2:
-
-    st.header("⚙️ Gestión de Modelos")
-
-col_izq, col_der = st.columns([1, 2])
-pedido = {}
 
 with col_izq:
     st.subheader("🛒 Cargar Pedido")
@@ -159,11 +148,18 @@ if any(pedido.values()):
 else:
     with col_der:
         st.info("Ingresa cantidades para ver el resumen de madera y pies cuadrados.")
-        with tab2:
+with tab2:
 
     st.header("⚙️ Gestión de Modelos")
 
-    accion = st.radio(
+    st.info("Próximamente: Alta, baja y modificación de modelos.")
+    
+        
+    with tab2:
+
+st.header("⚙️ Gestión de Modelos")
+
+accion = st.radio(
         "Acción",
         ["Crear", "Eliminar"]
     )
