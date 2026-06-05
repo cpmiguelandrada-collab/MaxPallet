@@ -68,7 +68,10 @@ def generar_pdf_pro(df_t, df_l, pies_totales):
         pdf.cell(50, 8, str(r['Tiras de 3m']), 1, 1)
     pdf_bytes = bytes(pdf.output(dest='S'))
     return pdf_bytes
+import os
 
+if 'pallets_db' not in st.session_state:
+    st.session_state.pallets_db = pallets_db.copy()
 st.title("🪵 MaxPallet")
 
 tab1, tab2 = st.tabs([
@@ -81,7 +84,7 @@ pedido = {}
 
 with col_izq:
     st.subheader("🛒 Cargar Pedido")
-    for nombre in pallets_db.keys():
+    for nombre in st.session_state.pallets_db.keys():
         pedido[nombre] = st.number_input(f"Cant. {nombre}", min_value=0, step=1)
 
 if any(pedido.values()):
@@ -92,13 +95,13 @@ if any(pedido.values()):
     for mod, cant in pedido.items():
         if cant > 0:
             # Procesar Tablas
-            for l, a, e, c in pallets_db[mod]["t"]:
+            for l, a, e, c in st.session_state.pallets_db[mod]["t"]:
                 m = (l, a, e)
                 v_pies = (l * a * e * c * cant) / 2354700
                 tablas_data[m] = tablas_data.get(m, 0) + (c * cant)
                 total_ft2 += v_pies
             # Procesar Listones
-            for l, a, e, c in pallets_db[mod]["l"]:
+            for l, a, e, c in st.session_state.pallets_db[mod]["l"]:
                 m = (a, e)
                 listones_raw[m] = listones_raw.get(m, 0) + (l * c * cant)
                 total_ft2 += (l * a * e * c * cant) / 2354700
