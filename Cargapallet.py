@@ -153,3 +153,44 @@ if any(pedido.values()):
 else:
     with col_der:
         st.info("Ingresa cantidades para ver el resumen de madera y pies cuadrados.")
+        with tab2:
+
+    st.header("⚙️ Gestión de Modelos")
+
+    accion = st.radio(
+        "Acción",
+        ["Crear", "Eliminar"]
+    )
+
+    if accion == "Crear":
+
+        nombre = st.text_input("Nombre del modelo")
+
+        clavos = st.number_input(
+            "Cantidad de clavos",
+            min_value=0,
+            value=0
+        )
+
+        if st.button("Guardar Modelo"):
+
+            st.session_state.pallets_db[nombre] = {
+                "t": [],
+                "l": [],
+                "cl": clavos
+            }
+
+            st.success(f"Modelo {nombre} creado")
+
+    elif accion == "Eliminar":
+
+        modelo = st.selectbox(
+            "Modelo",
+            list(st.session_state.pallets_db.keys())
+        )
+
+        if st.button("Eliminar Modelo"):
+
+            del st.session_state.pallets_db[modelo]
+
+            st.success("Modelo eliminado")
