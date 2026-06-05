@@ -69,7 +69,12 @@ def generar_pdf_pro(df_t, df_l, pies_totales):
     pdf_bytes = bytes(pdf.output(dest='S'))
     return pdf_bytes
 
-st.title("🪵 Optimizador de Producción Pallets")
+st.title("🪵 MaxPallet")
+
+tab1, tab2 = st.tabs([
+    "📋 Producción",
+    "⚙️ Gestión de Modelos"
+])
 
 col_izq, col_der = st.columns([1, 2])
 pedido = {}
