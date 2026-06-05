@@ -155,12 +155,11 @@ with tab2:
     st.info("Próximamente: Alta, baja y modificación de modelos.")
     
         
-    with tab2:
+with tab2:
 
-st.header("⚙️ Gestión de Modelos")
+    st.header("⚙️ Gestión de Modelos")
 
-accion = st.radio(
-        "Acción",
+    accion = st.radio("Acción",
         ["Crear", "Eliminar"]
     )
 
